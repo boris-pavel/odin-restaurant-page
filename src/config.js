@@ -1,4 +1,5 @@
 export const home = {
+  title: "The Germ Tavern",
   description: {
     text: "The Germ Tavern is a cozy and rustic pub located in the heart of a bustling city. The atmosphere inside the tavern is warm and inviting, with exposed brick walls and low lighting that creates a comfortable and intimate ambiance. The tavern has a wide selection of craft beers on tap, as well as a variety of signature cocktails and wines to choose from. The menu features classic pub fare with a modern twist, such as hearty sandwiches, savory soups, and gourmet burgers made with locally sourced ingredients. The Germ Tavern is a popular spot for locals and tourists alike, with friendly and attentive staff who provide excellent service. Whether you're looking for a casual night out with friends or a romantic date spot, The Germ Tavern is the perfect place to relax and enjoy delicious food and drinks in a welcoming and unpretentious setting.",
     title:

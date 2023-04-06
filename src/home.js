@@ -12,7 +12,6 @@ function createTimeTable(days) {
     li.textContent = `${entry[0]}: ${entry[1]}`;
     ul.append(li);
   });
-
   return ul;
 }
 
@@ -22,8 +21,8 @@ const createDescription = (desc, title) => {
   const para = document.createElement("p");
   para.textContent = desc;
   const heading = createHeading(2, title);
-  description.append(para);
   description.append(heading);
+  description.append(para);
   return description;
 };
 
@@ -65,8 +64,9 @@ export default function createHomePage(information) {
 
   const homepage = document.createElement("div");
   homepage.classList.add("homepage");
-  homepage.append(timeTable);
+  homepage.append(createHeading(1, information.title));
   homepage.append(description);
+  homepage.append(timeTable);
   homepage.append(location);
   return homepage;
 }
