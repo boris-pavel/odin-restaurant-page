@@ -1,39 +1,10 @@
 import "./normalize.css";
 import "./style.css";
 
-import {home} from "./config";
-import defaultExport from "./home"
-
-const createHeader = (...headerElementsText) => {
-  const header = document.createElement("div");
-  header.classList.add("header");
-  const ul = document.createElement("ul");
-
-  headerElementsText.forEach((headerElement) => {
-    const li = document.createElement("li");
-    li.textContent = headerElement;
-    ul.appendChild(li);
-  });
-  header.appendChild(ul);
-
-  return header;
-};
-
-const createSection = (section) => {
-  const div = defaultExport(home);
-  return div;
-};
-
-const createLinks = (...sentences) => {
-  const container = [];
-  sentences.forEach((sentence) => {
-    const a = document.createElement("a");
-    a.href = "#";
-    a.textContent = sentence;
-    container.push(a);
-  });
-  return container;
-};
+import { home, menu, contactInfo } from "./config";
+import homeSection from "./home";
+import menuSection from "./menu";
+import contactSection from "./about"
 
 const createFooter = (footerElements) => {
   const footer = document.createElement("div");
@@ -50,14 +21,73 @@ const createFooter = (footerElements) => {
   return footer;
 };
 
-const displayLayout = ((header, section, footer) => {
-  const content = document.querySelector("#content");
+const createSection = (section) => {
+  switch (section) {
+    case home:
+      return homeSection(home);
+    case menu:
+      return menuSection(menu);
+    case contactInfo:
+      return contactSection(contactInfo);
+    default:
+      return homeSection(home);
+  }
+};
 
+const displaySection = (section) => {
+  const content = document.querySelector("#content");
+  const currentSection = document.querySelector(".section");
+  content.removeChild(currentSection);
+  const footer = document.querySelector(".footer");
+  content.insertBefore(createSection(section), footer);
+};
+
+const createHeader = (...headerElementsText) => {
+  const header = document.createElement("div");
+  header.classList.add("header");
+  const ul = document.createElement("ul");
+
+  headerElementsText.forEach((headerElement) => {
+    const li = document.createElement("li");
+    li.textContent = headerElement;
+    switch (headerElement) {
+      case "Home":
+        li.addEventListener("click", () => displaySection(home));
+        break;
+      case "Menu":
+        li.addEventListener("click", () => displaySection(menu));
+        break;
+      case "Contact":
+        li.addEventListener("click", () => displaySection(contactInfo));
+        break;
+      default:
+        break;
+    }
+
+    ul.appendChild(li);
+  });
+  header.appendChild(ul);
+
+  return header;
+};
+
+const createLinks = (...sentences) => {
+  const container = [];
+  sentences.forEach((sentence) => {
+    const a = document.createElement("a");
+    a.href = "#";
+    a.textContent = sentence;
+    container.push(a);
+  });
+  return container;
+};
+
+const displayLayout = ((header, footer) => {
+  const content = document.querySelector("#content");
   content.append(header);
-  content.append(section);
+  content.append(createSection(home));
   content.append(footer);
 })(
   createHeader("Home", "Menu", "Contact"),
-  createSection(),
-  createFooter(createLinks("sadfasf sadf asdf asd", "lol"))
+  createFooter(createLinks("sadfasf sadf asdf asd", "lol", "Photo by CDC on Unsplash"))
 );

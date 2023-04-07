@@ -1,8 +1,4 @@
-const createHeading = (level, content) => {
-  const heading = document.createElement(`h${level}`);
-  heading.textContent = content;
-  return heading;
-};
+import createHeading from "./elements";
 
 function createTimeTable(days) {
   const ul = document.createElement("ul");
@@ -64,6 +60,7 @@ export default function createHomePage(information) {
 
   const homepage = document.createElement("div");
   homepage.classList.add("homepage");
+  homepage.classList.add("section");
   homepage.append(createHeading(1, information.title));
   homepage.append(description);
   homepage.append(timeTable);
