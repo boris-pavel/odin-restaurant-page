@@ -1,6 +1,7 @@
 ul,
 h1 {
   margin: 0;
+  padding: 0;
 }
 
 html {
@@ -15,7 +16,7 @@ html {
     "header" auto
     "section" 1fr
     "footer" auto / 1fr;
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 .header,
@@ -27,6 +28,7 @@ html {
 img {
   width: 250px;
   height: 250px;
+  border: 2px solid #3f524c;
 }
 
 .section {
@@ -35,6 +37,8 @@ img {
   flex-direction: column;
   align-items: center;
   margin: 5% 20%;
+  padding: 2% 10%;
+  border-radius: 10px;
 }
 
 .header ul {
@@ -44,9 +48,11 @@ img {
   gap: 2rem;
   font-size: 2rem;
 }
+
 .header {
   grid-area: header;
 }
+
 .footer ul {
   grid-area: footer;
   display: flex;
@@ -55,11 +61,31 @@ img {
   list-style: none;
   gap: 5rem;
 }
+
 .footer,
 .header {
-    padding: 1rem;
+  padding: 1rem;
 }
+
 a {
   text-decoration: none;
   color: black;
+}
+
+.card,
+h1,
+h2 {
+    padding: 5%;
+    margin: 1%;
+    background-color: #fdedd8;
+    border-radius: 10px;
+    border: 2px solid #3f524c;
+}
+
+h1 {
+    text-align: center;
+}
+
+.card > ul {
+    padding: 5%;
 }

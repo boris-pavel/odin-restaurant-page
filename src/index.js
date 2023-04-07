@@ -75,7 +75,7 @@ const createLinks = (...sentences) => {
   const container = [];
   sentences.forEach((sentence) => {
     const a = document.createElement("a");
-    a.href = "#";
+    a.href = "https://unsplash.com/@cdc?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText";
     a.textContent = sentence;
     container.push(a);
   });
@@ -89,5 +89,5 @@ const displayLayout = ((header, footer) => {
   content.append(footer);
 })(
   createHeader("Home", "Menu", "Contact"),
-  createFooter(createLinks("sadfasf sadf asdf asd", "lol", "Photo by CDC on Unsplash"))
+  createFooter(createLinks("Photo by CDC on Unsplash"))
 );
